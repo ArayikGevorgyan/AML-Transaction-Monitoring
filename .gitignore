@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+build/
+.env.local
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# OFAC XML (too large for GitHub)
+sdn_advanced.xml
