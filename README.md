@@ -1,6 +1,6 @@
 # AML Transaction Monitoring System
 
-> A professional-grade Anti-Money Laundering (AML) compliance platform built as a university capstone project, inspired by real-world systems such as NICE Actimize, Oracle FCCM, and the OFAC Sanctions Search Tool.
+> Anti-Money Laundering (AML) platform built as a university capstone project, inspired by real-world systems such as NICE Actimize, Oracle FCCM, and the OFAC Sanctions Search Tool.
 
 ---
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This system simulates a real-world AML transaction monitoring platform used by financial institutions to detect, investigate, and report suspicious financial activity. It implements rule-based detection, fuzzy sanctions screening against the official OFAC SDN list, alert generation, case management, and a full audit trail — all within a modern dark-themed fintech dashboard UI with light mode support.
+This system simulates a real-world AML transaction monitoring platform used by financial institutions to detect, investigate, and report suspicious financial activity. It implements rule-based detection, fuzzy sanctions screening against the official OFAC SDN list, alert generation, case management, and a full audit trail.
 
 ---
 
@@ -40,7 +40,6 @@ This system simulates a real-world AML transaction monitoring platform used by f
 - **Interactive Dashboard** with KPIs, charts, and real-time statistics
 - **Full Audit Trail** for all system actions
 - **Dark / Light Mode** toggle with persistent preference
-- **Responsive Fintech UI** built with React and Recharts
 
 ---
 
@@ -52,7 +51,7 @@ This system simulates a real-world AML transaction monitoring platform used by f
 | Backend | Python 3.13, FastAPI, SQLAlchemy ORM, Pydantic v2 |
 | Database | SQLite (WAL mode, foreign keys enabled) |
 | Authentication | JWT (python-jose), bcrypt password hashing |
-| Sanctions Data | OFAC SDN Advanced XML (official, updated 2026-03-18) |
+| Sanctions Data | OFAC SDN Advanced XML (official) |
 | Fuzzy Matching | jellyfish (Jaro-Winkler + Soundex), dnspython |
 | XML Parsing | lxml iterparse (streaming, memory-efficient) |
 | Email | SMTP via Brevo (or dev fallback to terminal) |
@@ -76,7 +75,7 @@ This system simulates a real-world AML transaction monitoring platform used by f
            │               │                │
     ┌──────▼──────┐ ┌──────▼──────┐  ┌──────▼──────┐
     │  SQLite DB  │ │ Rules Engine│  │   Sanctions │
-    │  (aml.db)   │ │  (8 rules)  │  │   Screener  │
+    │  (aml.db)   │ │  (8+ rules) │  │   Screener  │
     └─────────────┘ └─────────────┘  └─────────────┘
 ```
 
@@ -90,7 +89,7 @@ This system simulates a real-world AML transaction monitoring platform used by f
 | **Customers** | Customer profiles, risk levels (LOW/MEDIUM/HIGH), PEP status, sanctions flag |
 | **Accounts** | Bank accounts linked to customers with auto-generated account numbers |
 | **Transactions** | Create and monitor transactions; automated risk scoring on submission |
-| **Rules Engine** | 9 configurable AML detection rules with thresholds and time windows |
+| **Rules Engine** | 8+ configurable AML detection rules with thresholds and time windows |
 | **Alerts** | Auto-generated from rule matches; severity classification; status workflow |
 | **Cases** | Investigation management, notes thread, status tracking, SAR filing |
 | **Sanctions Screening** | Fuzzy name search against real OFAC SDN list (2.6M-line XML) |
